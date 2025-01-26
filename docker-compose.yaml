@@ -1,0 +1,39 @@
+# version: '3.8'
+
+# networks:
+#   nginx_network:
+#     name: nginx_network
+#     driver: bridge
+#     external: true
+
+# services:
+#   nextjs-app:
+#     container_name: 'hrm-crm'
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "8080:3000"
+#     environment:
+#       NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+#       NEXT_PUBLIC_CLOUDINARY_IMAGE_ACCCESS_PATH: ${NEXT_PUBLIC_CLOUDINARY_IMAGE_ACCCESS_PATH}
+#     env_file:
+#       - .env  # This will load the .env file into the container
+#     volumes:
+#       - .:/app
+#       - /app/node_modules
+#       - /app/.next
+#     networks:
+#       - nginx_network
+#     restart: always
+    
+   
+
+services:
+  app:
+    container_name: 'hrm-crm'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:3000"
